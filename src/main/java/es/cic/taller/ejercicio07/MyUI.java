@@ -6,11 +6,11 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+
+import es.cic.taller.ejercicio07.mus.Baraja;
+import es.cic.taller.ejercicio07.mus.Tapete;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -26,14 +26,28 @@ public class MyUI extends UI {
 	private TapeteForm tapete2 = new TapeteForm(this);
 	private TapeteForm tapete3 = new TapeteForm(this);
 	private TapeteForm tapete4 = new TapeteForm(this);
-	private VerticalLayout layout = new VerticalLayout();
+	
+	private HorizontalLayout layout = new HorizontalLayout();
 	
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-    	  	
-    	layout.addComponents(tapete1, tapete2, tapete3, tapete4);
-
-    	setContent(layout);
+    	
+        layout.addComponents(tapete1, tapete2, tapete3, tapete4);
+        
+        setContent(layout);
+        
+        Baraja baraja = new Baraja();
+        
+        Tapete manoTapete1 = baraja.getTapete();
+        Tapete manoTapete2 = baraja.getTapete();
+        Tapete manoTapete3 = baraja.getTapete();
+        Tapete manoTapete4 = baraja.getTapete();
+        
+        tapete1.setTapete(manoTapete1);
+        tapete2.setTapete(manoTapete2);
+        tapete3.setTapete(manoTapete3);
+        tapete4.setTapete(manoTapete4);
+        
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

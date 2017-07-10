@@ -32,7 +32,7 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
     	  	
     	layout.addComponents(tapete1, tapete2, tapete3, tapete4);
-    	
+
     	setContent(layout);
     }
 

@@ -7,7 +7,7 @@ import com.vaadin.ui.VerticalLayout;
 public class TapeteForm extends FormLayout {
 
 	private VerticalLayout layout = new VerticalLayout();
-    
+
 	private TextField carta1 = new TextField("Carta 1");    
 	private TextField carta2 = new TextField("Carta 2");    
 	private TextField carta3 = new TextField("Carta 3");    
